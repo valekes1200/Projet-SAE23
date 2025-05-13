@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prévisions Météorologiques</title>
+    <link rel="stylesheet" href="STYLE/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Instant Weather</h1>
+        <div id="currentDate"></div>
+        <form id="postalCodeForm">
+            <label for="postalCode">Code Postal :</label>
+            <input type="text" id="postalCode" name="postalCode" required>
+            <button type="submit">Rechercher</button>
+        </form>
+        <select id="citySelect" style="display:none;">
+            <option value="">--Sélectionnez une ville--</option>
+        </select>
+        <div id="weatherFormContainer" style="display:none;">
+            <form id="weatherForm">
+                <div class="form-group">
+                    <label for="days">Nombre de jours pour les prévisions (1 à 10) :</label>
+                    <select id="days" name="days" required>
+                        <option value="1">1 jour</option>
+                        <option value="2">2 jours</option>
+                        <option value="3">3 jours</option>
+                        <option value="4">4 jours</option>
+                        <option value="5">5 jours</option>
+                        <option value="6">6 jours</option>
+                        <option value="7">7 jours</option>
+                        <option value="8">8 jours</option>
+                        <option value="9">9 jours</option>
+                        <option value="10">10 jours</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Informations supplémentaires à afficher :</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="minTemp" name="minTemp" checked>
+                            <label for="minTemp">Latitude</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="maxTemp" name="maxTemp" checked>
+                            <label for="maxTemp">Longitude</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="rainProb" name="rainProb" checked>
+                            <label for="rainProb">Cumul de pluie sur la journée en mm</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="sunHours" name="sunHours" checked>
+                            <label for="sunHours"></label>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" id="showForecast">Afficher les prévisions</button>
+            </form>
+        </div>
+        <div id="weatherInfo"></div>
+    </div>
+    <script src="JAVA/recupinfoville.js"></script>
+    <script src="JAVA/recupinfometeo.js"></script>
+</body>
+</html>

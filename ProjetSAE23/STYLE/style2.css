@@ -59,6 +59,7 @@ form {
 
 .form-group {
     margin-bottom: 15px; /* Ajoute une marge en bas */
+    text-align: left; /* Aligne le texte à gauche */
 }
 
 label {
@@ -79,7 +80,17 @@ input[type="text"], select {
     background-color: #e0f7fa; /* Définit la couleur de fond */
 }
 
-input[type="checkbox"] {
+.checkbox-group {
+    margin-top: 10px; /* Ajoute une marge en haut */
+}
+
+.checkbox-item {
+    display: flex; /* Utilise la disposition flexbox */
+    align-items: center; /* Centre les éléments verticalement */
+    margin-bottom: 5px; /* Ajoute une marge en bas */
+}
+
+.checkbox-item input[type="checkbox"] {
     margin-right: 10px; /* Ajoute une marge à droite */
 }
 
@@ -122,12 +133,12 @@ button:hover {
 }
 
 /* Style spécifique pour le bouton "Rechercher" */
-#weatherForm button[type="submit"] {
+#postalCodeForm button[type="submit"] {
     background: linear-gradient(135deg, #976b6b, #4c9b50); /* Définit un dégradé de fond */
     color: #fff; /* Définit la couleur du texte en blanc */
 }
 
-#weatherForm button[type="submit"]:hover {
+#postalCodeForm button[type="submit"]:hover {
     background: linear-gradient(135deg, #4c9b50, #976b6b); /* Change le dégradé de fond au survol */
 }
 
