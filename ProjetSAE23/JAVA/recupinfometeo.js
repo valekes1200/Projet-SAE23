@@ -54,14 +54,17 @@ function afficherMétéo(données) {
     `;
 }
 
-// Ajoute un écouteur d'événement pour détecter les changements dans la liste déroulante des villes
-document.getElementById('citySelect').addEventListener('change', function() {
+// Ajoute un écouteur d'événement pour détecter les clics sur le bouton "Afficher les prévisions"
+document.getElementById('showForecast').addEventListener('click', function() {
     // Récupère le code de la ville sélectionnée
-    const codeVilleSélectionnée = this.value;
+    const codeVilleSélectionnée = document.getElementById('citySelect').value;
 
     // Vérifie si une ville a été sélectionnée
     if (codeVilleSélectionnée) {
         // Appelle la fonction pour récupérer la météo de la ville sélectionnée
         récupérerMétéo(codeVilleSélectionnée);
+    } else {
+        // Affiche une alerte si aucune ville n'est sélectionnée
+        alert('Veuillez sélectionner une ville.');
     }
 });
