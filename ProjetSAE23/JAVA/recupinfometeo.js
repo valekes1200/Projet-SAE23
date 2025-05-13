@@ -1,8 +1,7 @@
-
 // Fonction pour récupérer les données météorologiques d'une commune
 function récupérerMétéo(codeCommune) {
     // Clé API pour accéder au service météorologique
-    const cléAPI = '3f5edb23a4c5fd475f199e84bf09ed8fb6cd85e636b7951360a5e3b3ce5cfb24';
+    const cléAPI = '2fa54739785b7019af5a718e59185dda652356bbea87d30331e854959b92e80f';
 
     // Effectue une requête fetch vers l'API météo avec le code de la commune et la clé API
     fetch(`https://api.meteo-concept.com/api/forecast/daily?insee=${codeCommune}&token=${cléAPI}`)
@@ -47,5 +46,22 @@ function afficherMétéo(données) {
         <p>Température maximale : ${prévision.tmax}°C</p>
         <p>Probabilité de pluie : ${prévision.probarain}%</p>
         <p>Heures d'ensoleillement : ${prévision.sun_hours} heures</p>
+        <p>Latitude : ${données.city.latitude}</p>
+        <p>Longitude : ${données.city.longitude}</p>
+        <p>Cumul de pluie : ${prévision.rr10} mm</p>
+        <p>Vent moyen : ${prévision.wind10m} km/h</p>
+        <p>Direction du vent : ${prévision.dirwind10m}°</p>
     `;
 }
+
+// Ajoute un écouteur d'événement pour détecter les changements dans la liste déroulante des villes
+document.getElementById('citySelect').addEventListener('change', function() {
+    // Récupère le code de la ville sélectionnée
+    const codeVilleSélectionnée = this.value;
+
+    // Vérifie si une ville a été sélectionnée
+    if (codeVilleSélectionnée) {
+        // Appelle la fonction pour récupérer la météo de la ville sélectionnée
+        récupérerMétéo(codeVilleSélectionnée);
+    }
+});
