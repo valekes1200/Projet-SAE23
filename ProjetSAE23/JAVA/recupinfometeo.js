@@ -1,7 +1,7 @@
 // Fonction pour récupérer les données météorologiques d'une commune
 function récupérerMétéo(codeCommune) {
     // Clé API pour accéder au service météorologique
-    const cléAPI = '2fa54739785b7019af5a718e59185dda652356bbea87d30331e854959b92e80f';
+    const cléAPI = '3f5edb23a4c5fd475f199e84bf09ed8fb6cd85e636b7951360a5e3b3ce5cfb24';
 
     // Effectue une requête fetch vers l'API météo avec le code de la commune et la clé API
     fetch(`https://api.meteo-concept.com/api/forecast/daily?insee=${codeCommune}&token=${cléAPI}`)
